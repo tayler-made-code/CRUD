@@ -17,7 +17,7 @@ pip3 install flask
 ```
 
 ```bash
-pip3 install flask_alchemy
+pip3 install flask_sqlalchemy
 ```
 
 ## Additionally you can output the dependencies to a text file
@@ -78,3 +78,68 @@ def delete_article(id):
 if __name__ == '__main__':
     app.run(debug=True)
 ```
+
+
+# Using curl to get info
+
+### GET
+
+```bash
+curl http://127.0.0.1:5000/articles
+```
+
+### POST
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"id": 2, "title": "Flask Guide", "content": "Learning Flask is fun!"}' http://127.0.0.1:5000/articles
+```
+
+### PUT
+
+```bash
+curl -X PUT -H "Content-Type: application/json" -d '{"title": "Updated Flask Guide", "content": "Learning Flask is even more fun!"}' http://127.0.0.1:5000/articles/2
+```
+
+### DELETE
+
+```bash
+curl -X DELETE http://127.0.0.1:5000/articles/2
+```
+
+# Using postman
+
+### GET
+
+Use the link and choose GET, hit send
+http://127.0.0.1:5000/articles
+
+
+### POST
+
+use the link
+http://127.0.0.1:5000/articles
+
+```json
+{
+    "content": "Gobble Gobble",
+    "id": 2,
+    "title": "Flask is Fun"
+}
+```
+
+### PUT
+
+use the link
+http://127.0.0.1:5000/articles/id#
+
+```json
+{
+    "content": "Learning Flask is even more fun",
+    "title": "Flask is Fun"
+}
+```
+
+### DELETE
+
+use the link
+http://127.0.0.1:5000/articles/id#
